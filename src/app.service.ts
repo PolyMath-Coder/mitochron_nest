@@ -1,8 +1,12 @@
 import { Injectable } from '@nestjs/common';
+import { config } from 'dotenv';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  getHello(): object {
+    return {
+      status: true,
+      message: 'Welcome to Mitochron Hub...',
+    };
   }
 }
