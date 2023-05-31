@@ -1,11 +1,19 @@
 import { Injectable } from '@nestjs/common';
-import { CreateAttendeeDto } from './dto/create-attendee.dto';
-import { UpdateAttendeeDto } from './dto/update-attendee.dto';
+import { Model } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
+import { Attendee } from './schemas/attendee.schema';
+import { addAttendeeDto } from './dto/add-attendee.dto';
+import { Mode } from 'fs';
 
 @Injectable()
 export class AttendeeService {
-  create(createAttendeeDto: CreateAttendeeDto) {
-    return 'This action adds a new attendee';
+  constructor(
+    @InjectModel(Attendee.name) private attendeeModel: Model<Attendee>,
+  ) {}
+
+  async createAttendee(addAttendeeDto: addAttendeeDto): Promise<Attendee> {
+    return await this.attendeeModel.create(addAttendeeDto);
+    // return 'This action adds a new attendee';
   }
 
   findAll() {
@@ -16,9 +24,9 @@ export class AttendeeService {
     return `This action returns a #${id} attendee`;
   }
 
-  update(id: number, updateAttendeeDto: UpdateAttendeeDto) {
-    return `This action updates a #${id} attendee`;
-  }
+  // update(id: number, updateAttendeeDto: UpdateAttendeeDto) {
+  //   return `This action updates a #${id} attendee`;
+  // }
 
   remove(id: number) {
     return `This action removes a #${id} attendee`;

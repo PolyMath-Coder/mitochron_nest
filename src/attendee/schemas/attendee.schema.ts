@@ -22,7 +22,7 @@ export class Attendee {
   address: string;
 
   @Prop()
-  fieldsOfInterest: string[];
+  preferredFieldOfInterest: string;
 }
 
 export const AttendeeSchema = SchemaFactory.createForClass(Attendee);
