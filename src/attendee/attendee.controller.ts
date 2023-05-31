@@ -10,12 +10,13 @@ import {
 import { AttendeeService } from './attendee.service';
 import { addAttendeeDto } from './dto/add-attendee.dto';
 import { UpdateAttendeeDto } from './dto/update-attendee.dto';
+import { AttendeeRoute } from './shared/constants';
 
-@Controller('attendee')
+@Controller(AttendeeRoute.ATTENDEE)
 export class AttendeeController {
   constructor(private readonly attendeeService: AttendeeService) {}
 
-  @Post('add')
+  @Post(AttendeeRoute.ADD_ATTENDEE)
   addAttendee(@Body() addAttendeeDto: addAttendeeDto) {
     return this.attendeeService.createAttendee(addAttendeeDto);
   }

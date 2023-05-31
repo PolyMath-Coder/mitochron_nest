@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
+import { GlobalRoute } from './attendee/shared/constants';
 import { config } from 'dotenv';
 config();
 
@@ -20,6 +21,8 @@ async function bootstrap() {
       },
     }),
   );
+
+  app.setGlobalPrefix(GlobalRoute.PREFIX);
 
   await app.listen(process.env.PORT);
 }

@@ -17,6 +17,9 @@ export class addAttendeeDto {
   @IsEmail()
   email: string;
 
+  @IsString()
+  occupation: string;
+
   @IsNumber()
   age: number;
 
