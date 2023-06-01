@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AttendeeModule } from './attendee/attendee.module';
 import { config } from 'dotenv';
+import { TalkModule } from './talk/talk.module';
 config();
 const databaseURL = process.env.DB_URL;
 const DB_LINK = databaseURL.toString();
@@ -15,6 +16,7 @@ const DATABASE_NAME = process.env.DATABASE_NAME;
       dbName: `${DATABASE_NAME}`,
     }),
     AttendeeModule,
+    TalkModule,
   ],
   controllers: [AppController],
   providers: [AppService],
