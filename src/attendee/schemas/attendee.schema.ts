@@ -16,6 +16,9 @@ export class Attendee {
   email: string;
 
   @Prop()
+  organizer: string;
+
+  @Prop()
   occupation: string;
 
   @Prop()

@@ -1,4 +1,4 @@
 import { PartialType } from '@nestjs/mapped-types';
-import { CreateTalkDto } from './create-talk.dto';
+import { addTalkDto } from './add-talk.dto';
 
-export class UpdateTalkDto extends PartialType(CreateTalkDto) {}
+export class UpdateTalkDto extends PartialType(addTalkDto) {}

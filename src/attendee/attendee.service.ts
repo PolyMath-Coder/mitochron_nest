@@ -3,7 +3,7 @@ import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { Attendee } from './schemas/attendee.schema';
 import { addAttendeeDto } from './dto/add-attendee.dto';
-import { AddTalkResponseDto } from './shared/attendee.interface';
+import { AddAttendeeResponseDto } from './shared/attendee.interface';
 import { Mode } from 'fs';
 
 @Injectable()
@@ -14,7 +14,7 @@ export class AttendeeService {
 
   async createAttendee(
     addAttendeeDto: addAttendeeDto,
-  ): Promise<AddTalkResponseDto> {
+  ): Promise<AddAttendeeResponseDto> {
     const data = await this.attendeeModel.create(addAttendeeDto);
     return {
       status: 'success',

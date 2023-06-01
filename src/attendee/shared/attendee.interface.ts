@@ -1,5 +1,5 @@
 import { addAttendeeDto } from '../dto/add-attendee.dto';
-export interface AddTalkResponseDto {
+export interface AddAttendeeResponseDto {
   status: string;
   message: string;
   data: addAttendeeDto;

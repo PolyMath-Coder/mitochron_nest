@@ -7,7 +7,7 @@ export const enum TalkRoute {
   TALK = 'talk',
   ADD_TALK = '/add',
   ADD_TO_TALK = 'add/attendee',
-  REMOVE_TALK = 'remove',
+  REMOVE_TALK = 'remove/:talkId',
 }
 
 export const enum GlobalRoute {

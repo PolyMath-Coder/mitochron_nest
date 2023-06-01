@@ -1,11 +1,22 @@
 import { Injectable } from '@nestjs/common';
-import { CreateTalkDto } from './dto/create-talk.dto';
+import { addTalkDto } from './dto/add-talk.dto';
 import { UpdateTalkDto } from './dto/update-talk.dto';
+import { Model } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
+import { Talk } from '../attendee/schemas/talk.schema';
+import {
+  AddTalkResponseDto,
+  AddAttendeeToTalkResponseDto,
+} from '../attendee/shared/talk.interface';
+import { Attendee } from 'src/attendee/schemas/attendee.schema';
 
 @Injectable()
 export class TalkService {
-  create(createTalkDto: CreateTalkDto) {
-    return 'This action adds a new talk';
+  constructor(@InjectModel(Talk.name) private talkModel: Model<Talk>) {}
+  async addTalk(addTalkDto: addTalkDto): Promise<AddTalkResponseDto> {
+    const data = await this.talkModel.create(addTalkDto);
+
+    return { status: 'success', message: 'Talk successfully added', data };
   }
 
   findAll() {
@@ -16,11 +27,27 @@ export class TalkService {
     return `This action returns a #${id} talk`;
   }
 
-  update(id: number, updateTalkDto: UpdateTalkDto) {
-    return `This action updates a #${id} talk`;
+  async addAttendee(
+    talkId: string,
+    attendeeId: string,
+  ): Promise<AddAttendeeToTalkResponseDto> {
+    const data = await this.talkModel.findByIdAndUpdate(
+      talkId,
+      {
+        $push: { attendees: attendeeId },
+      },
+      { new: true },
+    );
+
+    return {
+      status: true,
+      message: `Attendee with the id ${attendeeId} successfully added to talk!`,
+      data,
+    };
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} talk`;
+  async removeTalk(talkId: string) {
+    await this.talkModel.findByIdAndDelete(talkId);
+    return { status: true, message: `The talk ${talkId} just got deleted...` };
   }
 }

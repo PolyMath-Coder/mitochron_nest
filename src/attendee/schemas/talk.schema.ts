@@ -11,17 +11,22 @@ export class Talk {
   titleOfTalk: string;
 
   @Prop()
-  date: string;
+  dateOfEvent: string;
 
   @Prop()
   location: string;
+
+  @Prop()
+  organizer: string;
+
+  @Prop()
+  fieldOfDiscourse: string;
 
   @Prop()
   venue: string;
 
   @Prop()
   canBeViewedOnline: boolean;
-  default: false;
 
   @Prop()
   leastExpectedAttendance: number;
@@ -32,3 +37,5 @@ export class Talk {
   @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Attendee' }] })
   attendees: Attendee[];
 }
+
+export const TalkSchema = SchemaFactory.createForClass(Talk);
