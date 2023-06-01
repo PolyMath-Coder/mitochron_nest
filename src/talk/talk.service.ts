@@ -19,14 +19,6 @@ export class TalkService {
     return { status: 'success', message: 'Talk successfully added', data };
   }
 
-  findAll() {
-    return `This action returns all talk`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} talk`;
-  }
-
   async addAttendee(
     talkId: string,
     attendeeId: string,
