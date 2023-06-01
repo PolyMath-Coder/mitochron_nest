@@ -12,6 +12,9 @@ Oupass Backend task
 <a href="">![NestJS](https://img.shields.io/badge/nestjs-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white)</a>
 <a href="">![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)</a>
 <a href="">![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)</a>
+<a href="">![MongoDB]
+(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vectorlogo.zone%2Flogos%2Fmongodb%2Findex.html&psig=AOvVaw1Gbt3dkmhDvHZrEhZCFew0&ust=1685705578599000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCIjcqu38of8CFQAAAAAdAAAAABAE)
+</a>
 
 </div>
 
