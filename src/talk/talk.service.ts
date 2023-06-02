@@ -23,13 +23,15 @@ export class TalkService {
     talkId: string,
     attendeeId: string,
   ): Promise<AddAttendeeToTalkResponseDto> {
-    const data = await this.talkModel.findByIdAndUpdate(
-      talkId,
-      {
-        $push: { attendees: attendeeId },
-      },
-      { new: true },
-    );
+    const data = await this.talkModel
+      .findByIdAndUpdate(
+        talkId,
+        {
+          $push: { attendees: attendeeId },
+        },
+        { new: true },
+      )
+      .populate('attendees');
 
     return {
       status: true,

@@ -1,6 +1,4 @@
-# OURPASS_CAPSTONE
-
-Oupass Backend task
+# Mitochron Hub Backend Engineer Coding Challenge
 
 ---
 
@@ -24,4 +22,4 @@ Oupass Backend task
 
 ## Useful Links.
 
-- [Postman Documentation](https://documenter.getpostman.com/view/26999767/2s93Y6sJkQ)
+- [Postman Documentation](https://documenter.getpostman.com/view/26264962/2s93mByKQS)
